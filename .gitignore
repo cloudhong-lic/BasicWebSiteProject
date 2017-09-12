@@ -244,5 +244,5 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
-/Sample.WebSite.React/dist/
-/Sample.WebSite.React/.vscode/
+/dist/
+/.vscode/
