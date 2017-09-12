@@ -7,11 +7,15 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.min.js',
+    filename: 'bundle.js',
     publicPath: 'dist'
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        warnings: false
+      }
+    }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production'),
@@ -31,7 +35,7 @@ module.exports = {
       }
     ]
   },
-  // resolve: {
-  //     extensions: ['.js', '.jsx'],
-  // },
+  resolve: {
+    extensions: ['', '.js', '.jsx'],
+  },
 };

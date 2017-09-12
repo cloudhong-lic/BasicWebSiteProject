@@ -8,6 +8,7 @@ import webpackConfigDev from './webpack.config.dev';
 import webpackConfigProd from './webpack.config.prod';
 
 // css任务, 处理LESS文件, 压缩合并CSS文件
+// 这个任务也可以在webpack中运行, 可以参考说明文件或网站
 gulp.task('css', () => gulp.src('./styles/**/*.less')
   .pipe(plumber())
   .pipe(less()) // 将LESS转换为CSS文件
