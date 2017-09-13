@@ -13,7 +13,8 @@ gulp.task('css', () => gulp.src('./styles/**/*.less')
   .pipe(plumber())
   .pipe(less()) // 将LESS转换为CSS文件
   .pipe(minifyCSS()) // 压缩CSS文件
-  .pipe(concat('style.min.css')) // 将css文件合并为一个, 如果想得到多个CSS文件则用gulp-rename /*.pipe(rename({ extname: '.min.css' }))*/
+  .pipe(concat('style.min.css')) // 将css文件合并为一个
+  // .pipe(rename({ extname: '.min.css' })) // 如果想得到多个CSS文件则用gulp-rename
   .pipe(gulp.dest('dist/styles'))); // 制定输出目录
 
 // webpack任务, 从webpack.config.js文件中获取webpack的配置并打包
