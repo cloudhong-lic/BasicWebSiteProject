@@ -19,6 +19,7 @@ gulp.task('css', () => gulp.src('./styles/**/*.less')
 
 // webpack任务, 从webpack.config.js文件中获取webpack的配置并打包
 // 有dev和prod两个版本
+// 如果不愿意有两个webpack.config文件, 可以把共用部分写进config文件, 然后在此添加特殊配置. 详细情况可以查看参考文档
 gulp.task('webpack-dev', () => gulp.src('./src/**/*.jsx')
   .pipe(webpack(webpackConfigDev))
   .pipe(gulp.dest('dist/scripts')));
@@ -27,10 +28,8 @@ gulp.task('webpack-prod', () => gulp.src('./src/**/*.jsx')
   .pipe(webpack(webpackConfigProd))
   .pipe(gulp.dest('dist/scripts')));
 
-/**
-  * static任务
-  * 主要负责将静态文件放置到/dist/*目录下
-  * */
+// static任务(又称npm-copy任务)
+// 主要负责将静态文件放置到/dist/*目录下
 gulp.task('static', () => {
   gulp.src('./src/fonts/**/*.*')
     .pipe(gulp.dest('./dist/fonts'));
@@ -46,8 +45,7 @@ gulp.task('watch', ['css', 'webpack-dev'], () => {
   gulp.watch('./src/**/*.js*', ['webpack-dev']);
 });
 
-/**
-  * 把 webpack css static 等任务打包，
-  * 这样在执行gulp的时候，就会自动执行webpack，css, static任务
-  */
+// 把 webpack css static 等任务打包，
+// 这样在执行gulp的时候，就会自动执行webpack，css, static任务
+// TODO: 暂时移除webpack-prod, 因为UglifyJS目前还不支持ES6, 导致编译错误. (猜测是由于babel-preset-env导致)
 gulp.task('default', ['css', 'webpack-dev', 'static'], () => { });
