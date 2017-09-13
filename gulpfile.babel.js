@@ -7,6 +7,28 @@ import webpack from 'gulp-webpack';
 import webpackConfigDev from './webpack.config.dev';
 import webpackConfigProd from './webpack.config.prod';
 
+// 删除文件(暂时没有用到, 但以后项目中可能用到的设置)
+// gulp.task('clean', (cb) => {
+//   del(['dist/css/*', 'dist/js/*', 'dist/img/*', 'dist/views/*'], cb); // 需要安装del npm package
+// });
+
+// 压缩js(暂时没有用到, 但以后项目中可能用到的设置)
+// gulp.task('js', () => gulp.src('public/js/**/*.js')
+//   .pipe(jshint())
+//   .pipe(jshint.reporter('default'))
+//   .pipe(uglify({ compress: true }))
+//   .pipe(gulp.dest('dist/js/')));
+
+// 压缩img(暂时没有用到, 但以后项目中可能用到的设置)
+// gulp.task('img', () =>
+//   gulp.src('public/img/**/*')        // 引入所有需处理的Img
+//     .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))      // 压缩图片
+//     // 如果想对变动过的文件进行压缩，则使用下面一句代码
+//     // .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))) 
+//     .pipe(gulp.dest('dist/img/'))
+//   // .pipe(notify({ message: '图片处理完成' }));
+// );
+
 // css任务, 处理LESS文件, 压缩合并CSS文件
 // 这个任务也可以在webpack中运行, 可以参考说明文件或网站
 gulp.task('css', () => gulp.src('./styles/**/*.less')
