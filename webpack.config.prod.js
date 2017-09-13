@@ -29,9 +29,24 @@ module.exports = {
         include: [path.join(__dirname, 'src')],
         exclude: /node_modules/,
         loader: 'babel-loader',
-        query: {
-          presets: ['react', 'latest']
-        }
+        options: {
+          plugins: [
+            'transform-class-properties',
+            'transform-object-rest-spread',
+            'transform-export-extensions',
+          ],
+          presets: [
+            [
+              'env',
+              {
+                targets: {
+                  browsers: ['last 2 versions', 'safari >= 7', 'ie >= 11'],
+                }
+              }
+            ], // 使用babel-preset-env获取最新的ES版本支持
+            'react',
+          ]
+        },
       }
     ]
   },

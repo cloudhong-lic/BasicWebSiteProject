@@ -20,13 +20,28 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.jsx$/, // 检测哪些文件需要此loader，是一个正则表达式
-        include: [path.join(__dirname, 'src')],
+        test: /\.jsx?$/, // 检测哪些文件需要此loader，是一个正则表达式. 在jsx后加了问号可以加载js和jsx文件
+        include: [path.join(__dirname, 'src')], // 包含哪些文件
         exclude: /node_modules/, // 忽略哪些文件
         loader: 'babel-loader',
-        query: {
-          presets: ['react', 'latest'] // 使用latest获取最新的ES版本支持(babel-preset-latest)
-        }
+        options: {
+          plugins: [
+            'transform-class-properties', // 用于解决(static propTypes = {})中等号的编译错误, 这是由于还没采用ES2017导致
+            'transform-object-rest-spread',
+            'transform-export-extensions',
+          ],
+          presets: [
+            [
+              'env',
+              {
+                targets: {
+                  browsers: ['last 2 versions', 'safari >= 7', 'ie >= 11'],
+                }
+              }
+            ], // 使用babel-preset-env获取最新的ES版本支持
+            'react',
+          ]
+        },
       }
     ]
   },

@@ -12,16 +12,28 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "classnames": "^2.2.5",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
     "babel-preset-es2015": "^6.24.1",
-    "babel-preset-latest": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
     "eslint": "^4.6.1",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "^2.7.0",
@@ -37,9 +49,24 @@
   },
   "babel": {
     "presets": [
-      "react",
-      "latest"
+      [
+        "env",
+        {
+          "targets": {
+            "browsers": [
+              "last 2 versions",
+              "safari >= 7",
+              "ie >= 11"
+            ]
+          }
+        }
+      ],
+      "react"
     ],
-    "plugins": []
+    "plugins": [
+      "transform-class-properties",
+      "transform-object-rest-spread",
+      "transform-export-extensions"
+    ]
   }
 }

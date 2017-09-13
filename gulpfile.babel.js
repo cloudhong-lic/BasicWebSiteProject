@@ -40,7 +40,7 @@ gulp.task('static', () => {
 });
 
 // 监控相应的目录，这样在文件被修改时，gulp会自动执行相应的任务
-gulp.task('watch', ['css', 'webpack'], () => {
+gulp.task('watch', ['css', 'webpack-dev'], () => {
   gulp.watch('./styles/**/*.less', ['css']);
   gulp.watch('./src/**/*.js*', ['webpack-dev']);
 });
@@ -49,4 +49,4 @@ gulp.task('watch', ['css', 'webpack'], () => {
   * 把 webpack css static 等任务打包，
   * 这样在执行gulp的时候，就会自动执行webpack，css, static任务
   */
-gulp.task('default', ['css', 'webpack-dev', 'webpack-prod', 'static'], () => { });
+gulp.task('default', ['css', 'webpack-dev', 'static'], () => { });
