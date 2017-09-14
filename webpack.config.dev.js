@@ -50,6 +50,6 @@ module.exports = {
 
   // 定义能够被打包的文件，文件后缀名
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['.js', '.jsx'],
   },
 };
