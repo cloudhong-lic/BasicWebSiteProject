@@ -3,7 +3,7 @@ import gulp from 'gulp';
 import less from 'gulp-less';
 import gutil from 'gulp-util';
 import plumber from 'gulp-plumber';
-import minifyCSS from 'gulp-minify-css';
+import minifyCSS from 'gulp-clean-css';
 import concat from 'gulp-concat';
 import stream from 'webpack-stream';
 import webpack from 'webpack';
