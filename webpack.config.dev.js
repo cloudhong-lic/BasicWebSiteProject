@@ -39,7 +39,7 @@ module.exports = {
                 }
               }
             ], // 使用babel-preset-env获取最新的ES版本支持
-            'react',
+            'react'
           ]
         },
       }

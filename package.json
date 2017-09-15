@@ -4,11 +4,13 @@
   "description": "A basic WebSite project",
   "main": "index.js",
   "scripts": {
+    "clean": "gulp clean",
     "build": "gulp",
     "watch": "gulp watch",
     "eslint": "eslint \"**/*.js*\"",
     "eslint-fix": "eslint --fix \"**/*.js*\"",
-    "test": "mocha --compilers js:babel-core/register \"tests/**/*.js\""
+    "test": "mocha --compilers js:babel-core/register \"tests/**/*.spec.js\"",
+    "coverage": "nyc --reporter=html --reporter=text npm test"
   },
   "author": "",
   "license": "ISC",
@@ -27,6 +29,7 @@
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.1",
+    "babel-plugin-istanbul": "^4.1.4",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-export-extensions": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
@@ -49,7 +52,9 @@
     "gulp-less": "^3.3.2",
     "gulp-plumber": "^1.1.0",
     "gulp-util": "^3.0.8",
+    "istanbul": "^0.4.5",
     "mocha": "^3.5.3",
+    "nyc": "^11.2.1",
     "react-test-renderer": "^15.6.1",
     "sinon": "^3.2.1",
     "sinon-chai": "^2.13.0",
@@ -76,7 +81,15 @@
     "plugins": [
       "transform-class-properties",
       "transform-object-rest-spread",
-      "transform-export-extensions"
+      "transform-export-extensions",
+      ["istanbul",
+        {
+          "include": [
+            "./src/**/*.js",
+            "src/**/*.jsx"
+          ]
+        }
+      ]
     ]
   }
 }

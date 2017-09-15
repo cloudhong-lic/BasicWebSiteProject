@@ -246,3 +246,5 @@ ModelManifest.xml
 .fake/
 /dist/
 /.vscode/
+/.nyc_output/
+/coverage/

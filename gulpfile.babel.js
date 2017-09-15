@@ -14,7 +14,7 @@ import webpackConfigProd from './webpack.config.prod';
 
 // 删除文件
 gulp.task('clean', () => {
-  del(['dist/*']);
+  del(['dist/*', 'coverage/*', '.nyc_output/*']);
 });
 
 // 压缩js(暂时没有用到, 但以后项目中可能用到的设置)

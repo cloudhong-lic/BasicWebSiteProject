@@ -34,6 +34,7 @@ module.exports = {
             'transform-class-properties',
             'transform-object-rest-spread',
             'transform-export-extensions',
+            'istanbul'
           ],
           presets: [
             [
