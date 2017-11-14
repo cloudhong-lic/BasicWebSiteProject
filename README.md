@@ -8,6 +8,12 @@
 
 基本的React + Redux框架
 
+### 安装指南
+
+gulp, eslint, mocha 和 nyc 需要全局安装 npm install -g
+
+运行 npm run build 或 gulp 可以启动server http://localhost:3001/ (但是不会自动打开浏览器)
+
 ### 心得文档
 
 [前端平台搭建基础](https://docs.google.com/document/d/1o1WlQS_l8VP9NBFqlxQWaYxXFZeQ_qGD4hfXe8RWM9I/edit?usp=sharing)

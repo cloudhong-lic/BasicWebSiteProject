@@ -82,7 +82,8 @@
       "transform-class-properties",
       "transform-object-rest-spread",
       "transform-export-extensions",
-      ["istanbul",
+      [
+        "istanbul",
         {
           "include": [
             "./src/**/*.js",
