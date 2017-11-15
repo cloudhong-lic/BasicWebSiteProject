@@ -1,7 +1,7 @@
 {
-  "name": "basicwebsiteproject",
+  "name": "React+Redux",
   "version": "1.0.0",
-  "description": "A basic WebSite project",
+  "description": "A basic WebSite project based on React and Redux",
   "main": "index.js",
   "scripts": {
     "clean": "gulp clean",
